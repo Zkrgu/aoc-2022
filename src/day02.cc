@@ -12,25 +12,22 @@ typedef vector<int> vi;
 
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	
-	freopen("input/day02", "r", stdin);
 
 	char o, m;
-	int d;
+	int d, s;
 	ll p1 = 0, p2 = 0;
 	while(cin >> o >> m) {
 		o -= 65;
 		m -= 88;
 
 		p1 += m+1;
-		d = ((o-m)%3+3)%3;
+		s = ((1 + m - o)%3+3)%3;
+		p1 += 3*s;
 
-		if(d==2) p1 += 6;
-		else if(d==0) p1 += 3;
-
-		if(m==2) p2 += 7+((o+1)%3)%3;
-		else if(m==1) p2 += 4+o;
-		else p2 += 1+((o-1)%3+3)%3;
+		m = ((o+m-1)%3+3)%3;
+		p2 += m+1;
+		s = ((1 + m - o)%3+3)%3;
+		p2 += 3*s;
 	}
 	cout << p1 << "\n" << p2;
 }

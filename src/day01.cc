@@ -12,8 +12,6 @@ typedef vector<int> vi;
 
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	
-	freopen("input/day01", "r", stdin);
 
 	string s;
 	int i = 0, n = 0;
