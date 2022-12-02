@@ -1,8 +1,8 @@
 CC=g++
-DAY=01
+DAY=02
 
-run: day${DAY}.exe
-	./day${DAY}.exe
+run: day${DAY}
+	./day${DAY}
 
-day${DAY}.exe: day${DAY}.cpp
-	${CC} -o day${DAY}.exe day${DAY}.cpp
+day${DAY}: day${DAY}.cc
+	${CC} -o day${DAY} day${DAY}.cc
