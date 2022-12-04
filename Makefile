@@ -28,7 +28,7 @@ bin/day%: src/day%.cc
 	${CC} $< -o $@
 
 input/day%:
-	curl -s -b session=${AOC_SESSION} https://adventofcode.com/${YEAR}/day/${patsubst 0%,%,$*}/input -o $@
+	curl -s -b session=${AOC_SESSION} -a "github.com/Zkrgu/aoc-2022 by xyzkrgu@gmail.com" https://adventofcode.com/${YEAR}/day/${patsubst 0%,%,$*}/input -o $@
 
 clean:
 	rm bin/*
