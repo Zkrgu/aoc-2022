@@ -6,9 +6,11 @@ DAY=$(lastword ${DAYS})
 RUN=${foreach day,${DAYS},run${day}}
 TEST=${foreach day,${DAYS},test${day}}
 
-.PHONY: newest all tests clean ${TEST} ${RUN}
+.PHONY: latest test all tests clean ${TEST} ${RUN}
 
 latest: run${DAY}
+
+test: test${DAY}
 
 all: ${RUN}
 
