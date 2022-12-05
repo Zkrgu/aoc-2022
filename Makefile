@@ -1,5 +1,6 @@
 include .env
 CC=g++
+CFLAGS=
 YEAR=2022
 DAYS=${patsubst src/day%.cc,%, ${wildcard src/day*.cc}}
 DAY=$(lastword ${DAYS})
@@ -25,10 +26,10 @@ ${RUN}: run% : bin/day% input/day%
 	@echo "\n"
 
 bin/day%: src/day%.cc
-	${CC} $< -o $@
+	${CC} ${CFLAGS} $< -o $@
 
 input/day%:
-	curl -s -b session=${AOC_SESSION} -a "github.com/Zkrgu/aoc-2022 by xyzkrgu@gmail.com" https://adventofcode.com/${YEAR}/day/${patsubst 0%,%,$*}/input -o $@
+	curl -s -b session=${AOC_SESSION} -A "github.com/Zkrgu/aoc-2022 by xyzkrgu@gmail.com" https://adventofcode.com/${YEAR}/day/${patsubst 0%,%,$*}/input -o $@
 
 clean:
 	rm bin/*
